@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KaKo</title>
+    <style>
+        /* Reseteo básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fondo blanco puro y sin scroll */
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        /* Contenedor del video a pantalla completa */
+        .video-container {
+            width: 100vw;
+            height: 100vh;
+            /* Usamos 100dvh para móviles y evitar problemas con la barra de direcciones */
+            height: 100dvh; 
+            position: relative;
+            background-color: #ffffff;
+        }
+
+        /* Estilos del video */
+        video {
+            width: 100%;
+            height: 100%;
+            /* 'cover' hace que el video llene todo el espacio sin distorsionarse (puede recortar un poco los bordes) */
+            object-fit: cover; 
+            
+            /* Evita cualquier interacción con el video */
+            pointer-events: none; 
+            -webkit-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <!-- 
+            autoplay: inicia solo
+            loop: se repite
+            muted: obligatorio para autoplay
+            playsinline: evita pantalla completa en iOS
+        -->
+        <video 
+            autoplay 
+            loop 
+            muted 
+            playsinline 
+            disablePictureInPicture
+            controlsList="nodownload"
+        >
+            <!-- Video de ejemplo de lengua de señas -->
+            <source src="intro.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento video.
+        </video>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- CONFIGURACIÓN DE LA REDIRECCIÓN ---
+            const tiempoEspera = 4000; // 4000 milisegundos = 4 segundos
+            
+            // ⬇️ AQUÍ PONES EL ENLACE AL QUE QUIERES REDIRIGIR ⬇️
+            const urlDestino = "C:/Users/danie/Downloads/bienvenida.html"; 
+            // ⬆️ AQUÍ PONES EL ENLACE AL QUE QUIERES REDIRIGIR ⬆️
+
+            // Temporizador que se ejecuta después del tiempo de espera
+            setTimeout(() => {
+                // Redirigir a la URL
+                window.location.href = urlDestino;
+            }, tiempoEspera);
+        });
+    </script>
+</body>
+</html>
